@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" color-mode=light>
+<html lang="zh-CN" color-mode=light>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -121,8 +121,8 @@
         page_black_list: ''
       },
       search: {
-        enable: false,
-        path: ''
+        enable: true,
+        path: 'search.xml'
       }
     }
   </script>
@@ -149,6 +149,8 @@
         <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
       
       
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
     </div>
     <div class="center"> </div>
     <div class="right">
@@ -170,9 +172,13 @@
     <ul class="menu-content"><li class="menu-item">
         <a href="/ " class="underline active"> 首页</a>
       </li><li class="menu-item">
-        <a href="/tags/ " class="underline "> 标签</a>
+        <a href="/galleries " class="underline "> 相册</a>
+      </li><li class="menu-item">
+        <a href="/archives " class="underline "> 归档</a>
       </li><li class="menu-item">
         <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/tags " class="underline "> 标签</a>
       </li><li class="menu-item">
         <a href="/about/ " class="underline "> 关于</a>
       </li></ul>
@@ -228,24 +234,24 @@
 <div class="col-lg-4 col-md-6 col-sm-12 post-item">
   <div class="post-wrap">
     
-    <a href="/2021/09/29/hello-world/" class="post-image">
+    <a href="/2021/09/29/%E5%85%B3%E4%BA%8Ehexo/" class="post-image">
       <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
     </a>
     <div class="post-content">
       <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2021/09/29/hello-world/" title="Hello World" >Hello World</a></h3>
+        <h3 class="post-title"><a href="/2021/09/29/%E5%85%B3%E4%BA%8Ehexo/" title="关于hexo" >关于hexo</a></h3>
         <div class="post-excerpt">
-          <p class="substr-3">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any ...</p>
+          <p class="substr-3">1.Hexo简介Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Coding上，是搭建博客的首选框架。大家可以进入hexo官网进行详...</p>
         </div>
       </div>
       <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>September 29, 2021</span>
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>九月 29, 2021</span>
         
           <span class="post-info-item">
-            <i class="iconfont iconeye"></i><span id="/2021/09/29/hello-world/" class="leancloud-counter" data-flag-title="Hello World"></span>
+            <i class="iconfont iconeye"></i><span id="/2021/09/29/%E5%85%B3%E4%BA%8Ehexo/" class="leancloud-counter" data-flag-title="关于hexo"></span>
           </span>
           <span class="post-info-item">
-            <i class="iconfont iconheart"></i><span id="/2021/09/29/hello-world/" class="leancloud-like" data-flag-title="Hello World"></span>
+            <i class="iconfont iconheart"></i><span id="/2021/09/29/%E5%85%B3%E4%BA%8Ehexo/" class="leancloud-like" data-flag-title="关于hexo"></span>
           </span>
         
       </div>
@@ -324,6 +330,20 @@
 <script src="/js/color-mode.js"></script>
 
   
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
   
 </body>
 
