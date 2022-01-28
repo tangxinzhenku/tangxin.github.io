@@ -86,7 +86,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Stack栈</title>
+    <title>Stack与Deque</title>
     <url>/2022/01/22/Stack%E4%B8%8EDeque/</url>
     <content><![CDATA[<h1 id="Java-Stack类"><a href="#Java-Stack类" class="headerlink" title="Java Stack类"></a>Java Stack类</h1><p>是Vector的一个子类，它栈实现了一个标准的后进先出的栈。</p>
 <p>除了定义了向量定义的所有方法，也定义了自己的一些方法。</p>
@@ -113,6 +113,44 @@
       </categories>
       <tags>
         <tag>栈堆</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>webpack</title>
+    <url>/2022/01/28/webpack/</url>
+    <content><![CDATA[<h1 id="使用WebPack"><a href="#使用WebPack" class="headerlink" title="使用WebPack"></a>使用WebPack</h1><p>1.创建项目</p>
+<p>2.创建一个名为modules的目录，用于放置js模块等资源文件</p>
+<p>3.在modules下创建模块文件，如hello.js，用于编写js模块相关代码</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 暴露一个方法sayHi</span></span><br><span class="line"><span class="built_in">exports</span>.sayHi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">&quot;&lt;div&gt;hello webpack&lt;/div&gt;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.在modules下创建一个名为main.js的入口文件，用于打包时设置entry属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//require导入一个模块，就可以调用这个模块中的方法了</span></span><br><span class="line"><span class="keyword">var</span> hello= <span class="built_in">require</span>(<span class="string">&quot;./hello&quot;</span>);</span><br><span class="line">hello.sayHi();</span><br></pre></td></tr></table></figure>
+
+<p>5.在项目目录下创建webpack.config.js配置文件，使用webpack命令打包</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./modules/main.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>:&#123;</span><br><span class="line">        <span class="attr">filename</span>:<span class="string">&#x27;./js/bundle.js&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&#x27;development&#x27;</span> <span class="comment">//development开发环境 production生产环境变量</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>6.在项目目录下创建index.html文件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;dist/js/bundle.js&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>7.在idea控制台中直接执行webpack；如果失败的话，就使用管理员权限运行即可！</p>
+<p>8.运行Html文件看效果</p>
+<p><strong>说明：</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//参数 --watach用于监听变化</span></span><br><span class="line">webpack --watch</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install webpack -g</span><br><span class="line">npm install webpack -cli -g</span><br><span class="line"></span><br><span class="line">webpack -v //测试安装是否成功</span><br><span class="line">webpack -cli -v</span><br></pre></td></tr></table></figure>
+
+<p><strong>配置</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">entry:入口文件，指定webpack用哪个文件作为文件的入口</span><br><span class="line"><span class="attr">output</span>:输出，指定webpack把处理完成的文件放置到指定路径</span><br><span class="line"><span class="attr">module</span>:模块，用于处理各种类型的文件</span><br><span class="line"><span class="attr">plugins</span>:插件，如：热更新、代码重用等</span><br><span class="line"><span class="attr">resolve</span>:设置路径指向</span><br><span class="line"><span class="attr">watch</span>:监听,用于设置文件改动后直接打包</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">	<span class="attr">entry</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">	<span class="attr">output</span>:&#123;</span><br><span class="line">		<span class="attr">path</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">		<span class="attr">filename</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">module</span>:&#123;</span><br><span class="line">		<span class="attr">loaders</span>:[</span><br><span class="line">			&#123;<span class="attr">test</span>:<span class="regexp">/\.js$/</span>, loader: <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">plugins</span>:&#123;&#125;,</span><br><span class="line">	<span class="attr">resolve</span>:&#123;&#125;,</span><br><span class="line">	<span class="attr">watch</span>:ture</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
       </tags>
   </entry>
 </search>

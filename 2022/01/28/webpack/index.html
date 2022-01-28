@@ -6,12 +6,13 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>关于hexo - tx</title>
+  <title>webpack - tx</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  <meta name="description" content="1.Hexo简介Hexo是一款基于Node.js的静态...">
+  <meta name="description" content="使用WebPack1.创建项目
+2.创建一个名为mod...">
   <meta name="author" content="tang xin">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -154,7 +155,7 @@
         <i class="iconfont iconsearch j-navbar-search"></i>
       
     </div>
-    <div class="center">关于hexo</div>
+    <div class="center">webpack</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -198,97 +199,50 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">关于hexo</h1>
+    <h1 class="head-title">webpack</h1>
     <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>九月 29, 2021</span>
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 28, 2022</span>
       
         <span class="post-info-item">
-          <i class="iconfont iconeye"></i><span id="/2021/09/29/%E5%85%B3%E4%BA%8Ehexo/" class="leancloud-counter" data-flag-title="关于hexo"></span>
+          <i class="iconfont iconeye"></i><span id="/2022/01/28/webpack/" class="leancloud-counter" data-flag-title="webpack"></span>
         </span>
         <span class="post-info-item">
-          <i class="iconfont iconheart"></i><span id="/2021/09/29/%E5%85%B3%E4%BA%8Ehexo/" class="leancloud-like" data-flag-title="关于hexo"></span>
+          <i class="iconfont iconheart"></i><span id="/2022/01/28/webpack/" class="leancloud-like" data-flag-title="webpack"></span>
         </span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2814</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1544</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h1 id="1-Hexo简介"><a href="#1-Hexo简介" class="headerlink" title="1.Hexo简介"></a>1.Hexo简介</h1><p>Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Coding上，是搭建博客的首选框架。大家可以进入hexo官网进行详细查看，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。</p>
-<h1 id="2-Hexo搭建步骤"><a href="#2-Hexo搭建步骤" class="headerlink" title="2.Hexo搭建步骤"></a>2.Hexo搭建步骤</h1><p>安装Git<br>安装Node.js<br>安装Hexo<br>GitHub创建个人仓库<br>生成SSH添加到GitHub<br>将hexo部署到GitHub<br>设置个人域名<br>发布文章</p>
-<h2 id="2-1安装Git"><a href="#2-1安装Git" class="headerlink" title="2.1安装Git"></a>2.1安装Git</h2><p>Git是目前世界上最先进的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。也就是用来管理你的hexo博客文章，上传到GitHub的工具。</p>
-<p>windows：到git官网上下载,Download git,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。</p>
-<p>linux：sudo apt-get install git<br>安装好后，用git –version 来查看一下版本</p>
-<h2 id="2-2安装nodejs"><a href="#2-2安装nodejs" class="headerlink" title="2.2安装nodejs"></a>2.2安装nodejs</h2><p>Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。</p>
-<p>windows：nodejs选择LTS版本就行了。</p>
-<p>linux：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure>
+        <h1 id="使用WebPack"><a href="#使用WebPack" class="headerlink" title="使用WebPack"></a>使用WebPack</h1><p>1.创建项目</p>
+<p>2.创建一个名为modules的目录，用于放置js模块等资源文件</p>
+<p>3.在modules下创建模块文件，如hello.js，用于编写js模块相关代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 暴露一个方法sayHi</span></span><br><span class="line"><span class="built_in">exports</span>.sayHi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">&quot;&lt;div&gt;hello webpack&lt;/div&gt;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.在modules下创建一个名为main.js的入口文件，用于打包时设置entry属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//require导入一个模块，就可以调用这个模块中的方法了</span></span><br><span class="line"><span class="keyword">var</span> hello= <span class="built_in">require</span>(<span class="string">&quot;./hello&quot;</span>);</span><br><span class="line">hello.sayHi();</span><br></pre></td></tr></table></figure>
+
+<p>5.在项目目录下创建webpack.config.js配置文件，使用webpack命令打包</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./modules/main.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>:&#123;</span><br><span class="line">        <span class="attr">filename</span>:<span class="string">&#x27;./js/bundle.js&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&#x27;development&#x27;</span> <span class="comment">//development开发环境 production生产环境变量</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>6.在项目目录下创建index.html文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;dist/js/bundle.js&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>7.在idea控制台中直接执行webpack；如果失败的话，就使用管理员权限运行即可！</p>
+<p>8.运行Html文件看效果</p>
+<p><strong>说明：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参数 --watach用于监听变化</span></span><br><span class="line">webpack --watch</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br><span class="line">npm install webpack -cli -g</span><br><span class="line"></span><br><span class="line">webpack -v //测试安装是否成功</span><br><span class="line">webpack -cli -v</span><br></pre></td></tr></table></figure>
+
+<p><strong>配置</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">entry:入口文件，指定webpack用哪个文件作为文件的入口</span><br><span class="line"><span class="attr">output</span>:输出，指定webpack把处理完成的文件放置到指定路径</span><br><span class="line"><span class="attr">module</span>:模块，用于处理各种类型的文件</span><br><span class="line"><span class="attr">plugins</span>:插件，如：热更新、代码重用等</span><br><span class="line"><span class="attr">resolve</span>:设置路径指向</span><br><span class="line"><span class="attr">watch</span>:监听,用于设置文件改动后直接打包</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">	<span class="attr">entry</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">	<span class="attr">output</span>:&#123;</span><br><span class="line">		<span class="attr">path</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">		<span class="attr">filename</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">module</span>:&#123;</span><br><span class="line">		<span class="attr">loaders</span>:[</span><br><span class="line">			&#123;<span class="attr">test</span>:<span class="regexp">/\.js$/</span>, loader: <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">plugins</span>:&#123;&#125;,</span><br><span class="line">	<span class="attr">resolve</span>:&#123;&#125;,</span><br><span class="line">	<span class="attr">watch</span>:ture</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<p>安装完后，打开命令行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 
-
-<p>检查一下有没有安装成功</p>
-<h2 id="2-3安装hexo"><a href="#2-3安装hexo" class="headerlink" title="2.3安装hexo"></a>2.3安装hexo</h2><p>前面git和nodejs安装好后，就可以安装hexo了，你可以先创建一个文件夹blog，然后cd到这个文件夹下（或者在这个文件夹下直接右键git bash打开）。</p>
-<p>输入命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-
-<p>依旧用hexo -v查看一下版本</p>
-<p>至此就全部安装完了。</p>
-<p>接下来初始化一下hexo</p>
-<p>hexo init myblog<br>这个myblog可以自己取什么名字都行，然后</p>
-<p>cd myblog //进入这个myblog文件夹</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
-
-<p>新建完成后，指定文件夹目录下有：</p>
-<p>node_modules: 依赖包<br>public：存放生成的页面<br>scaffolds：生成文章的一些模板<br>source：用来存放你的文章<br>themes：主题<br>** _config.yml: 博客的配置文件**<br>hexo g<br>hexo server<br>打开hexo的服务，在浏览器输入localhost:4000就可以看到你生成的博客了。</p>
-<p>使用ctrl+c可以把服务关掉。</p>
-<h2 id="2-4GitHub创建个人仓库"><a href="#2-4GitHub创建个人仓库" class="headerlink" title="2.4GitHub创建个人仓库"></a>2.4GitHub创建个人仓库</h2><p>首先，你先要有一个GitHub账户，去注册一个吧。</p>
-<p>注册完登录后，在GitHub.com中看到一个New repository，新建仓库</p>
-<p>创建一个和你用户名相同的仓库，后面加.github.io，只有这样，将来要部署到GitHub page的时候，才会被识别，也就是xxxx.github.io，其中xxx就是你注册GitHub的用户名。</p>
-<p>点击create repository。</p>
-<h2 id="2-5生成SSH添加到GitHub"><a href="#2-5生成SSH添加到GitHub" class="headerlink" title="2.5生成SSH添加到GitHub"></a>2.5生成SSH添加到GitHub</h2><p>回到你的git bash中，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
-
-<p>这里的yourname输入你的GitHub用户名，youremail输入你GitHub的邮箱。这样GitHub才能知道你是不是对应它的账户。</p>
-<p>可以用以下两条，检查一下你有没有输对</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-
-<p>然后创建SSH,一路回车</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
-
-<p>这个时候它会告诉你已经生成了.ssh的文件夹。在你的电脑中找到这个文件夹。</p>
-<p>ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。</p>
-<p>而后在GitHub的setting中，找到SSH keys的设置选项，点击New SSH key<br>把你的id_rsa.pub里面的信息复制进去。</p>
-<p>在gitbash中，查看是否成功</p>
-<p>ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;</a></p>
-<h2 id="2-6将hexo部署到GitHub"><a href="#2-6将hexo部署到GitHub" class="headerlink" title="2.6将hexo部署到GitHub"></a>2.6将hexo部署到GitHub</h2><p>这一步，我们就可以将hexo和GitHub关联起来，也就是将hexo生成的文章部署到GitHub上，打开站点配置文件 _config.yml，翻到最后，修改为<br>YourgithubName就是你的GitHub账户</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/xxx/xxx.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<p>这个时候需要先安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>然后</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean //清除了你之前生成的东西，也可以不加</span><br><span class="line">hexo generate //生成静态文章，可以用 hexo g缩写</span><br><span class="line">hexo deploy //部署文章，可以用hexo d缩写</span><br></pre></td></tr></table></figure>
-
-<p>注意deploy时可能要你输入username和password。</p>
-<p>得到下图就说明部署成功了，过一会儿就可以在<a target="_blank" rel="noopener" href="http://xxxx.github.io/">http://xxxx.github.io</a> 这个网站看到你的博客了！！</p>
-<h2 id="2-7设置个人域名"><a href="#2-7设置个人域名" class="headerlink" title="2.7设置个人域名"></a>2.7设置个人域名</h2><p>现在你的个人网站的地址是xxxx.github.io，如果觉得这个网址逼格不太够，这就需要你设置个人域名了。</p>
-<p>注册一个阿里云账户,在阿里云上买一个域名.</p>
-<p>你需要先去进行实名认证,然后在域名控制台中，看到你购买的域名。</p>
-<p>点解析进去，添加解析。</p>
-<p>登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名</p>
-<p>然后在你的博客文件source中创建一个名为CNAME文件，不要后缀。写上你的域名。</p>
-<p>最后，在gitbash中，输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>过不了多久，再打开你的浏览器，输入你自己的域名，就可以看到搭建的网站啦！</p>
-<p>接下来你就可以正式开始写文章了。</p>
-<p>hexo使用详情见<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
 
       </section>
       <section class="extra">
@@ -296,7 +250,7 @@
           <ul class="copyright">
   
     <li><strong>本文作者：</strong>tang xin</li>
-    <li><strong>本文链接：</strong><a href="http://txxhlyf.top/2021/09/29/%E5%85%B3%E4%BA%8Ehexo/index.html" title="http:&#x2F;&#x2F;txxhlyf.top&#x2F;2021&#x2F;09&#x2F;29&#x2F;%E5%85%B3%E4%BA%8Ehexo&#x2F;index.html">http:&#x2F;&#x2F;txxhlyf.top&#x2F;2021&#x2F;09&#x2F;29&#x2F;%E5%85%B3%E4%BA%8Ehexo&#x2F;index.html</a></li>
+    <li><strong>本文链接：</strong><a href="http://txxhlyf.top/2022/01/28/webpack/index.html" title="http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;01&#x2F;28&#x2F;webpack&#x2F;index.html">http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;01&#x2F;28&#x2F;webpack&#x2F;index.html</a></li>
     <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
   
 </ul>
@@ -313,12 +267,12 @@
 </section>
         
         
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul> 
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul> 
 
         
   <nav class="nav">
-    <a href="/2022/01/22/Stack%E4%B8%8EDeque/"><i class="iconfont iconleft"></i>Stack与Deque</a>
     <a></a>
+    <a href="/2022/01/22/Stack%E4%B8%8EDeque/">Stack与Deque<i class="iconfont iconright"></i></a>
   </nav>
 
       </section>
@@ -364,7 +318,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Hexo%E7%AE%80%E4%BB%8B"><span class="toc-text">1.Hexo简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Hexo%E6%90%AD%E5%BB%BA%E6%AD%A5%E9%AA%A4"><span class="toc-text">2.Hexo搭建步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E5%AE%89%E8%A3%85Git"><span class="toc-text">2.1安装Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2%E5%AE%89%E8%A3%85nodejs"><span class="toc-text">2.2安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3%E5%AE%89%E8%A3%85hexo"><span class="toc-text">2.3安装hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4GitHub%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93"><span class="toc-text">2.4GitHub创建个人仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5%E7%94%9F%E6%88%90SSH%E6%B7%BB%E5%8A%A0%E5%88%B0GitHub"><span class="toc-text">2.5生成SSH添加到GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0GitHub"><span class="toc-text">2.6将hexo部署到GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7%E8%AE%BE%E7%BD%AE%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D"><span class="toc-text">2.7设置个人域名</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8WebPack"><span class="toc-text">使用WebPack</span></a></li></ol>
   </aside>
 
         
