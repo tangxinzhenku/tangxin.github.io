@@ -1,0 +1,645 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>面试经 - tx</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Spring Boot打成的jar与普通的jar有什么...">
+  <meta name="author" content="tang xin">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: true,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: '/images/theme/txalipay.jpg',
+        wechat: '/images/theme/txwechat.png'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: true
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">面试经</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries " class="underline "> 相册</a>
+      </li><li class="menu-item">
+        <a href="/archives " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/tags " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Copyright 2021 by  <a target="_blank" href="https://github.com/tangxinzhenku/tangxinzhenku.github.io">tx</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">面试经</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>二月 12, 2022</span>
+      
+        <span class="post-info-item">
+          <i class="iconfont iconeye"></i><span id="/2022/02/12/%E9%9D%A2%E8%AF%95%E7%BB%8F/" class="leancloud-counter" data-flag-title="面试经"></span>
+        </span>
+        <span class="post-info-item">
+          <i class="iconfont iconheart"></i><span id="/2022/02/12/%E9%9D%A2%E8%AF%95%E7%BB%8F/" class="leancloud-like" data-flag-title="面试经"></span>
+        </span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>6584</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h1 id="Spring-Boot打成的jar与普通的jar有什么区别？"><a href="#Spring-Boot打成的jar与普通的jar有什么区别？" class="headerlink" title="Spring Boot打成的jar与普通的jar有什么区别？"></a>Spring Boot打成的jar与普通的jar有什么区别？</h1><p>Spring Boot的项目终止以jar包的形式进行打包，这种jar包可以通过可以通过命令（java -jar xxx.jar）来运行的，这种jar包不能被其他项目所依赖，即使被依赖了也不能直接使用其中的类。普通的jar包，解压后直接就是包名，包里就是我们的代码，而 Spring Boot 打包成的可执行 jar 解压后，在 \BOOT-INF\classes 目录下才是我们的代码，因此无法被直接引用。如果非要引用，可以在 pom.xml 文件中增加配置，将 Spring Boot 项目打包成两个 jar ，一个可执行，一个可引用。</p>
+<h1 id="Spring-Boot如何定义多套不同的环境配置？"><a href="#Spring-Boot如何定义多套不同的环境配置？" class="headerlink" title="Spring Boot如何定义多套不同的环境配置？"></a>Spring Boot如何定义多套不同的环境配置？</h1><p>一个程序可能在不同的环境下运行，如开发环境(dev)、测试环境（test)、生成环境（prod）。</p>
+<p>配置不同环境的配置文件：</p>
+<ul>
+<li>application.properties/yml</li>
+<li>application-dev.properties/yml(开发环境)</li>
+<li>application-test.properties/yml(测试环境)</li>
+<li>application-uat.properties/yml(预发布环境)</li>
+<li>application-prod.properties/yml(生产环境)</li>
+</ul>
+<p>指定环境运行：</p>
+<ol>
+<li>在cmd命令中指定：java -jar xxx.jar —spring.profiles.actvie=dev</li>
+<li>在application.properties中指定:spring.profiles.actvie=dev</li>
+<li>在idea编辑器中指定：在运行设置中Active profiles 输入 dev 即可。</li>
+</ol>
+<h1 id="什么是Spring-Data"><a href="#什么是Spring-Data" class="headerlink" title="什么是Spring Data?"></a>什么是Spring Data?</h1><p>Spring Data是一个用于简化数据库访问，并支持云服务的开源框架。其主要目标是使得对数据的访问变得方便快捷。</p>
+<h1 id="Spring-Security和Shiro各自的优缺点？"><a href="#Spring-Security和Shiro各自的优缺点？" class="headerlink" title="Spring Security和Shiro各自的优缺点？"></a>Spring Security和Shiro各自的优缺点？</h1><p>相同点：</p>
+<p>  1：认证功能</p>
+<p>  2：授权功能</p>
+<p>  3：加密功能</p>
+<p>  4：会话管理</p>
+<p>  5：缓存支持</p>
+<p>  6：rememberMe功能…….</p>
+<p>不同点：</p>
+<p>   优点：</p>
+<p>   1：Spring Security基于Spring开发，项目中如果使用Spring作为基础，配合Spring Security做权限更加方便，而Shiro需要和Spring进行整合开发</p>
+<p>   2：Spring Security功能比Shiro更加丰富些，例如安全防护</p>
+<p>   3：Spring Security社区资源比Shiro丰富</p>
+<p>   缺点：</p>
+<p>   1：Shiro的配置和使用比较简单，Spring Security上手复杂</p>
+<p>   2：Shiro依赖性低，不需要任何框架和容器，可以独立运行，而Spring Security依赖于Spring容器</p>
+<h1 id="SpringBoot实现热部署有哪几种方式"><a href="#SpringBoot实现热部署有哪几种方式" class="headerlink" title="SpringBoot实现热部署有哪几种方式?"></a>SpringBoot实现热部署有哪几种方式?</h1><ol>
+<li><p>使用spring-boot-devtools组件（快速重新部署），在pom.xml文件中注入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用springloaded插件，在pom.xml文件中注入依赖</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springloaded<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="SpringBoot中如何解决跨域问题？"><a href="#SpringBoot中如何解决跨域问题？" class="headerlink" title="SpringBoot中如何解决跨域问题？"></a>SpringBoot中如何解决跨域问题？</h1><p>掌握SpringMVC中解决跨域问题的3种方式</p>
+<ol>
+<li>注解的方式：@CrossOrigin</li>
+<li>全局配置的方式：WebMvcConfigurer接口的addCorsMappings方法中注册CORS配置</li>
+<li>拦截器的方式：CorsFilter</li>
+</ol>
+<h1 id="SpringBoot有几种读取配置的方式？"><a href="#SpringBoot有几种读取配置的方式？" class="headerlink" title="SpringBoot有几种读取配置的方式？"></a>SpringBoot有几种读取配置的方式？</h1><p>@value</p>
+<p>@ConfigurationProperties</p>
+<h1 id="SpringBoot、SpringMVC和Spring有什么区别？"><a href="#SpringBoot、SpringMVC和Spring有什么区别？" class="headerlink" title="SpringBoot、SpringMVC和Spring有什么区别？"></a>SpringBoot、SpringMVC和Spring有什么区别？</h1><p>Spring 是一个“引擎”；</p>
+<p>Spring MVC 是基于Spring的一个 MVC 框架 ；</p>
+<p>Spring Boot 是基于Spring4的条件注册的一套快速开发整合包。</p>
+<h1 id="什么是CSRF攻击？"><a href="#什么是CSRF攻击？" class="headerlink" title="什么是CSRF攻击？"></a>什么是CSRF攻击？</h1><p>跨站请求攻击。简单的说，是攻击者通过一些技术手段欺骗用户的浏览器去访问一个自己以前认证过的站点并运行一些操作。</p>
+<h1 id="SpringBoot需要独立的容器运行吗？"><a href="#SpringBoot需要独立的容器运行吗？" class="headerlink" title="SpringBoot需要独立的容器运行吗？"></a>SpringBoot需要独立的容器运行吗？</h1><p>不需要。因为SpringBoot内置了tomcat、Jetty等服务器，可以独立运行。</p>
+<h1 id="YAML配置的优势在哪里？"><a href="#YAML配置的优势在哪里？" class="headerlink" title="YAML配置的优势在哪里？"></a>YAML配置的优势在哪里？</h1><p>使用YMAL可以让文件更加结构化，而且不容易混淆。可以看出YAML具有分层配置数据。</p>
+<p>使用原则：</p>
+<p>1，大小写敏感</p>
+<p>2，使用缩进表示层级关系</p>
+<p>3，缩进长度没有限制，只要元素对齐就表示这些元素属于同一个层级</p>
+<p>4，使用#号来表示注解</p>
+<p>5，字符串可以不用引号标注</p>
+<h1 id="如何使用SpringBoot实现分页和排序？"><a href="#如何使用SpringBoot实现分页和排序？" class="headerlink" title="如何使用SpringBoot实现分页和排序？"></a>如何使用SpringBoot实现分页和排序？</h1><p>使用 Spring Data-JPA 可以实现将可分页的传递给存储库方法。</p>
+<h1 id="SpringBoot的核心注解是哪个？它主要有哪几个注解组成的？"><a href="#SpringBoot的核心注解是哪个？它主要有哪几个注解组成的？" class="headerlink" title="SpringBoot的核心注解是哪个？它主要有哪几个注解组成的？"></a>SpringBoot的核心注解是哪个？它主要有哪几个注解组成的？</h1><p>启动类上面的注解是@SpringBootApplication，它也是 Spring Boot 的核心注解，主要组合包含了以下 3 个注解：</p>
+<p>@SpringBootConfiguration：组合了 @Configuration 注解，实现配置文件的功能。</p>
+<p>@EnableAutoConfiguration：打开自动配置的功能，也可以关闭某个自动配置的选项，如关闭数据源自动配置功能： @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })。</p>
+<p>@ComponentScan：Spring组件扫描。</p>
+<h1 id="SpringBoot集成mybatis的过程？"><a href="#SpringBoot集成mybatis的过程？" class="headerlink" title="SpringBoot集成mybatis的过程？"></a>SpringBoot集成mybatis的过程？</h1><ol>
+<li>在pom.xml文件中注入相关的依赖。</li>
+<li>在application.properties/yml中添加数据库配置和mapper扫描配置。</li>
+</ol>
+<h1 id="RequestMapping和GetMapping的不同之处在哪里？"><a href="#RequestMapping和GetMapping的不同之处在哪里？" class="headerlink" title="RequestMapping和GetMapping的不同之处在哪里？"></a>RequestMapping和GetMapping的不同之处在哪里？</h1><p>区别：<br>@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写。该注解将HTTP Get 映射到 特定的处理方法上。<br>同理@PostMapping也是一个组合注解，是@RequestMapping(method = RequestMethod.POST)的缩写。</p>
+<p>注意：@RequestMapping如果没有指定请求方式，将接收Get、Post、Head、Options等所有的请求方式。</p>
+<h1 id="SpringBoot中如何实现定时任务？"><a href="#SpringBoot中如何实现定时任务？" class="headerlink" title="SpringBoot中如何实现定时任务？"></a>SpringBoot中如何实现定时任务？</h1><ol>
+<li>在启动类上添加 @EnableScheduling 注解，开启定时任务。在定时方法上加上@Scheduled注解。</li>
+<li> 在启动类上添加 @EnableScheduling 注解，开启定时任务。注入Quartz 依赖。Quartz 在使用过程中，有两个关键概念，一个是JobDetail（要做的事情），另一个是触发器（什么时候做），要定义 JobDetail，需要先定义 Job，继承 QuartzJobBean 并实现默认的方法。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyJob2</span> <span class="keyword">extends</span> <span class="title">QuartzJobBean</span> </span>&#123;</span><br><span class="line">    HelloService helloService;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> HelloService <span class="title">getHelloService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helloService;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHelloService</span><span class="params">(HelloService helloService)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.helloService = helloService;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">executeInternal</span><span class="params">(JobExecutionContext jobExecutionContext)</span> <span class="keyword">throws</span> JobExecutionException </span>&#123;</span><br><span class="line">        helloService.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;hello service &gt;&gt;&gt;&quot;</span>+<span class="keyword">new</span> Date());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Job 有了之后，接下来创建类，配置 JobDetail 和 Trigger 触发器。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuartzConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">MethodInvokingJobDetailFactoryBean <span class="title">methodInvokingJobDetailFactoryBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        MethodInvokingJobDetailFactoryBean bean = <span class="keyword">new</span> MethodInvokingJobDetailFactoryBean();</span><br><span class="line">        bean.setTargetBeanName(<span class="string">&quot;myJob1&quot;</span>);</span><br><span class="line">        bean.setTargetMethod(<span class="string">&quot;sayHello&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">JobDetailFactoryBean <span class="title">jobDetailFactoryBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        JobDetailFactoryBean bean = <span class="keyword">new</span> JobDetailFactoryBean();</span><br><span class="line">        bean.setJobClass(MyJob2.class);</span><br><span class="line">        JobDataMap map = <span class="keyword">new</span> JobDataMap();</span><br><span class="line">        map.put(<span class="string">&quot;helloService&quot;</span>, helloService());</span><br><span class="line">        bean.setJobDataMap(map);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">SimpleTriggerFactoryBean <span class="title">simpleTriggerFactoryBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        SimpleTriggerFactoryBean bean = <span class="keyword">new</span> SimpleTriggerFactoryBean();</span><br><span class="line">        bean.setStartTime(<span class="keyword">new</span> Date());</span><br><span class="line">        bean.setRepeatCount(<span class="number">5</span>);</span><br><span class="line">        bean.setJobDetail(methodInvokingJobDetailFactoryBean().getObject());</span><br><span class="line">        bean.setRepeatInterval(<span class="number">3000</span>);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">CronTriggerFactoryBean <span class="title">cronTrigger</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        CronTriggerFactoryBean bean = <span class="keyword">new</span> CronTriggerFactoryBean();</span><br><span class="line">        bean.setCronExpression(<span class="string">&quot;0/10 * * * * ?&quot;</span>);</span><br><span class="line">        bean.setJobDetail(jobDetailFactoryBean().getObject());</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">SchedulerFactoryBean <span class="title">schedulerFactoryBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        SchedulerFactoryBean bean = <span class="keyword">new</span> SchedulerFactoryBean();</span><br><span class="line">        bean.setTriggers(cronTrigger().getObject(), simpleTriggerFactoryBean().getObject());</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">HelloService <span class="title">helloService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HelloService();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>关于这个配置说如下几点：</p>
+<ol>
+<li>JobDetail 的配置有两种方式：MethodInvokingJobDetailFactoryBean 和 JobDetailFactoryBean 。</li>
+<li>使用 MethodInvokingJobDetailFactoryBean 可以配置目标 Bean 的名字和目标方法的名字，这种方式不支持传参。</li>
+<li>使用 JobDetailFactoryBean 可以配置 JobDetail ，任务类继承自 QuartzJobBean ，这种方式支持传参，将参数封装在 JobDataMap 中进行传递。</li>
+<li>Trigger 是指触发器，Quartz 中定义了多个触发器，这里向大家展示其中两种的用法，SimpleTrigger 和 CronTrigger 。</li>
+<li>SimpleTrigger 有点类似于前面说的 @Scheduled 的基本用法。</li>
+<li>CronTrigger 则有点类似于 @Scheduled 中 cron 表达式的用法。</li>
+</ol>
+<h1 id="SpringBoot的目录结构是怎样的？"><a href="#SpringBoot的目录结构是怎样的？" class="headerlink" title="SpringBoot的目录结构是怎样的？"></a>SpringBoot的目录结构是怎样的？</h1><p>　src/main/java:存放代码</p>
+<p>　　src/main/resources</p>
+<p>　　　　　　static:存放静态文件，比如：css js image </p>
+<p>　　　　　　templates:存放静态页面 jsp ,html,tpl</p>
+<p>　　　　　　application.properties文件，全局配置文件</p>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>tang xin</li>
+    <li><strong>本文链接：</strong><a href="http://txxhlyf.top/2022/02/12/%E9%9D%A2%E8%AF%95%E7%BB%8F/index.html" title="http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;02&#x2F;12&#x2F;%E9%9D%A2%E8%AF%95%E7%BB%8F&#x2F;index.html">http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;02&#x2F;12&#x2F;%E9%9D%A2%E8%AF%95%E7%BB%8F&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="/images/theme/txalipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2022/01/28/VueRouter/">VueRouter<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+        <section class="comments">
+  
+    <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+<div id="valine"></div>
+<script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  window.onload = function () {
+    var loadValine = function () {
+      new Valine({
+        el: '#valine',
+        app_id: "E5osV9THCkqKJTAPM3vNz0YX-gzGzoHsz",
+        app_key: "SUVNKWcjjMURoAFNt0JzhV05",
+        placeholder: "雁过留痕",
+        avatar: "mp",
+        pageSize: "10",
+        lang: "zh-CN",
+      });
+    }
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        loadValine();
+      });
+    } else {
+      loadValine();
+    }
+  };
+</script>
+
+</section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Boot%E6%89%93%E6%88%90%E7%9A%84jar%E4%B8%8E%E6%99%AE%E9%80%9A%E7%9A%84jar%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">Spring Boot打成的jar与普通的jar有什么区别？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Boot%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89%E5%A4%9A%E5%A5%97%E4%B8%8D%E5%90%8C%E7%9A%84%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%9F"><span class="toc-text">Spring Boot如何定义多套不同的环境配置？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFSpring-Data"><span class="toc-text">什么是Spring Data?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Security%E5%92%8CShiro%E5%90%84%E8%87%AA%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">Spring Security和Shiro各自的优缺点？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot%E5%AE%9E%E7%8E%B0%E7%83%AD%E9%83%A8%E7%BD%B2%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-text">SpringBoot实现热部署有哪几种方式?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot%E4%B8%AD%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">SpringBoot中如何解决跨域问题？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot%E6%9C%89%E5%87%A0%E7%A7%8D%E8%AF%BB%E5%8F%96%E9%85%8D%E7%BD%AE%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">SpringBoot有几种读取配置的方式？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot%E3%80%81SpringMVC%E5%92%8CSpring%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">SpringBoot、SpringMVC和Spring有什么区别？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFCSRF%E6%94%BB%E5%87%BB%EF%BC%9F"><span class="toc-text">什么是CSRF攻击？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot%E9%9C%80%E8%A6%81%E7%8B%AC%E7%AB%8B%E7%9A%84%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E5%90%97%EF%BC%9F"><span class="toc-text">SpringBoot需要独立的容器运行吗？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#YAML%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BC%98%E5%8A%BF%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-text">YAML配置的优势在哪里？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8SpringBoot%E5%AE%9E%E7%8E%B0%E5%88%86%E9%A1%B5%E5%92%8C%E6%8E%92%E5%BA%8F%EF%BC%9F"><span class="toc-text">如何使用SpringBoot实现分页和排序？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot%E7%9A%84%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3%E6%98%AF%E5%93%AA%E4%B8%AA%EF%BC%9F%E5%AE%83%E4%B8%BB%E8%A6%81%E6%9C%89%E5%93%AA%E5%87%A0%E4%B8%AA%E6%B3%A8%E8%A7%A3%E7%BB%84%E6%88%90%E7%9A%84%EF%BC%9F"><span class="toc-text">SpringBoot的核心注解是哪个？它主要有哪几个注解组成的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot%E9%9B%86%E6%88%90mybatis%E7%9A%84%E8%BF%87%E7%A8%8B%EF%BC%9F"><span class="toc-text">SpringBoot集成mybatis的过程？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RequestMapping%E5%92%8CGetMapping%E7%9A%84%E4%B8%8D%E5%90%8C%E4%B9%8B%E5%A4%84%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-text">RequestMapping和GetMapping的不同之处在哪里？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%9F"><span class="toc-text">SpringBoot中如何实现定时任务？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="toc-text">SpringBoot的目录结构是怎样的？</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=2111782823 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/tangxinzhenku "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:tangxinsuperman@foxmail.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Copyright 2021 by  <a target="_blank" href="https://github.com/tangxinzhenku/tangxinzhenku.github.io">tx</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+    <div class="fab fab-like">
+      <i class="iconfont iconheart"></i>
+    </div>
+  
+  
+    <div class="fab fab-daovoice">
+      <i class="iconfont iconcomment"></i>
+    </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+  
+<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+  <script>
+  $.getScript("//cdn.jsdelivr.net/npm/leancloud-storage@4.1.0/dist/av-min.js", () => {
+
+    AV.init({
+      appId: 'E5osV9THCkqKJTAPM3vNz0YX-gzGzoHsz',
+      appKey: 'SUVNKWcjjMURoAFNt0JzhV05',
+      serverURLs: 'https://leancloud.cn/',
+    });
+
+    const Counter = AV.Object.extend("Counter");
+    const Like = AV.Object.extend("Like");
+
+    const showCount = (Counter) => {
+      const asyncLimit = new AsyncLimit(2);
+      $(".leancloud-counter").each(async (e) => {
+        const url = $(".leancloud-counter").eq(e).attr('id').trim();
+        const query = new AV.Query("Counter");
+        query.equalTo("words", url);
+        let count = await asyncLimit.run(() => query.count());
+        $(".leancloud-counter").eq(e).text(count ? count : 0);
+      });
+    }
+
+    const addCount = (Counter) => {
+      const url = $(".leancloud-counter").length === 1 ? $(".leancloud-counter").attr('id').trim() : 'http://txxhlyf.top';
+      var query = new Counter;
+      query.save({
+        words: url
+      });
+    }
+
+    const showLike = (Like) => {
+      const asyncLimit = new AsyncLimit(2);
+      $(".leancloud-like").each(async (e) => {
+        const url = $(".leancloud-like").eq(e).attr('id').trim();
+        const query = new AV.Query("Like");
+        query.equalTo("path", url);
+        let count = await asyncLimit.run(() => query.count());
+        $(".leancloud-like").eq(e).text(count ? count : 0);
+      });
+    }
+
+    const addLike = (Like) => {
+      const url = $(".leancloud-like").length === 1 ? $(".leancloud-like").attr('id').trim() : 'http://txxhlyf.top';
+      var query = new Like;
+      query.save({
+        path: url,
+        nickName: 'Anonymous'
+      });
+      $(".leancloud-like").addClass('islike');
+      $(".fab-like").children(".iconfont").removeClass("iconheart").addClass("iconheart-fill").css("color", "#eb3223");
+      ZHAOO.zui.message({ text: '爱你哦~', type: 'success' });
+      setTimeout(() => showLike(Like), 1000);
+    }
+
+    const handleLikeClick = () => {
+      const isLike = $(".leancloud-like").length === 1 && $(".leancloud-like").hasClass('islike') ? true : false;
+      if (isLike) {
+        ZHAOO.zui.message({ text: '小心心不可以收回呢~', type: 'warning' });
+      } else {
+        addLike(Like);
+      }
+    }
+
+    $(function () {
+      addCount(Counter);
+      showCount(Counter);
+      showLike(Like);
+      $(".fab-like").on("click", function () {
+        handleLikeClick();
+      });
+    });
+
+  });
+</script>
+
+
+
+  
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i["DaoVoiceObject"] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    a.charset = "utf-8";
+    m.parentNode.insertBefore(a, m)
+  })(window, document, "script", "https://widget.daovoice.io/widget/0f81ff2f.js", "daovoice")
+  daovoice('init', {
+    app_id: "f8e2a649"
+  }, {
+    launcher: {
+      disableLauncherIcon: true,
+    },
+  });
+  daovoice('update');
+</script>
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

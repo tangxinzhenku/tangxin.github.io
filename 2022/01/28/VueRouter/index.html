@@ -6,13 +6,13 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>webpack - tx</title>
+  <title>VueRouter - tx</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  <meta name="description" content="使用WebPack1.创建项目
-2.创建一个名为mod...">
+  <meta name="description" content="安装输入以下命令，安装vue-router插件包
+1n...">
   <meta name="author" content="tang xin">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -155,7 +155,7 @@
         <i class="iconfont iconsearch j-navbar-search"></i>
       
     </div>
-    <div class="center">webpack</div>
+    <div class="center">VueRouter</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -199,49 +199,40 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">webpack</h1>
+    <h1 class="head-title">VueRouter</h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 28, 2022</span>
       
         <span class="post-info-item">
-          <i class="iconfont iconeye"></i><span id="/2022/01/28/webpack/" class="leancloud-counter" data-flag-title="webpack"></span>
+          <i class="iconfont iconeye"></i><span id="/2022/01/28/VueRouter/" class="leancloud-counter" data-flag-title="VueRouter"></span>
         </span>
         <span class="post-info-item">
-          <i class="iconfont iconheart"></i><span id="/2022/01/28/webpack/" class="leancloud-like" data-flag-title="webpack"></span>
+          <i class="iconfont iconheart"></i><span id="/2022/01/28/VueRouter/" class="leancloud-like" data-flag-title="VueRouter"></span>
         </span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1544</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1516</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h1 id="使用WebPack"><a href="#使用WebPack" class="headerlink" title="使用WebPack"></a>使用WebPack</h1><p>1.创建项目</p>
-<p>2.创建一个名为modules的目录，用于放置js模块等资源文件</p>
-<p>3.在modules下创建模块文件，如hello.js，用于编写js模块相关代码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 暴露一个方法sayHi</span></span><br><span class="line"><span class="built_in">exports</span>.sayHi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">&quot;&lt;div&gt;hello webpack&lt;/div&gt;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>输入以下命令，安装vue-router插件包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router --save-dev</span><br></pre></td></tr></table></figure>
 
-<p>4.在modules下创建一个名为main.js的入口文件，用于打包时设置entry属性</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//require导入一个模块，就可以调用这个模块中的方法了</span></span><br><span class="line"><span class="keyword">var</span> hello= <span class="built_in">require</span>(<span class="string">&quot;./hello&quot;</span>);</span><br><span class="line">hello.sayHi();</span><br></pre></td></tr></table></figure>
+<p>如果在一个模块化工程中使用它，必须要通过Vue.use()明确地安装路由功能：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter);</span><br></pre></td></tr></table></figure>
 
-<p>5.在项目目录下创建webpack.config.js配置文件，使用webpack命令打包</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./modules/main.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>:&#123;</span><br><span class="line">        <span class="attr">filename</span>:<span class="string">&#x27;./js/bundle.js&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&#x27;development&#x27;</span> <span class="comment">//development开发环境 production生产环境变量</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>1.定义一个Content.vue的组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;h1&gt;内容&lt;/h1&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;content&quot;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
-<p>6.在项目目录下创建index.html文件</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;dist/js/bundle.js&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.新建一个router文件夹存放路由</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">&quot;vue-router&quot;</span></span><br><span class="line"><span class="keyword">import</span> Content <span class="keyword">from</span> <span class="string">&#x27;../components/Content&#x27;</span></span><br><span class="line"><span class="comment">//安装路由</span></span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line"></span><br><span class="line"><span class="comment">//配置导出路由</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">   <span class="attr">routes</span>:[&#123;</span><br><span class="line">       <span class="comment">//路由路径</span></span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/content&#x27;</span>,</span><br><span class="line">       <span class="comment">//路由名称</span></span><br><span class="line">        <span class="attr">name</span>:<span class="string">&#x27;content&#x27;</span>,</span><br><span class="line">        <span class="comment">//跳转组件</span></span><br><span class="line">        <span class="attr">component</span>:Content</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>7.在idea控制台中直接执行webpack；如果失败的话，就使用管理员权限运行即可！</p>
-<p>8.运行Html文件看效果</p>
-<p><strong>说明：</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参数 --watach用于监听变化</span></span><br><span class="line">webpack --watch</span><br></pre></td></tr></table></figure>
+<p>3.在main.js中配置路由</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App&#x27;</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span> <span class="comment">//自动扫描里面的路由配置</span></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span><span class="comment">//来关闭生产模式下给出的提示</span></span><br><span class="line"><span class="comment">//显示声明使用VueRouter</span></span><br><span class="line">Vue.use(router);</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  router,<span class="comment">//配置路由</span></span><br><span class="line">  <span class="attr">components</span>: &#123; App &#125;,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">&#x27;&lt;App/&gt;&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p><strong>安装：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br><span class="line">npm install webpack -cli -g</span><br><span class="line"></span><br><span class="line">webpack -v //测试安装是否成功</span><br><span class="line">webpack -cli -v</span><br></pre></td></tr></table></figure>
-
-<p><strong>配置</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">entry:入口文件，指定webpack用哪个文件作为文件的入口</span><br><span class="line"><span class="attr">output</span>:输出，指定webpack把处理完成的文件放置到指定路径</span><br><span class="line"><span class="attr">module</span>:模块，用于处理各种类型的文件</span><br><span class="line"><span class="attr">plugins</span>:插件，如：热更新、代码重用等</span><br><span class="line"><span class="attr">resolve</span>:设置路径指向</span><br><span class="line"><span class="attr">watch</span>:监听,用于设置文件改动后直接打包</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">	<span class="attr">entry</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">	<span class="attr">output</span>:&#123;</span><br><span class="line">		<span class="attr">path</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">		<span class="attr">filename</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">module</span>:&#123;</span><br><span class="line">		<span class="attr">loaders</span>:[</span><br><span class="line">			&#123;<span class="attr">test</span>:<span class="regexp">/\.js$/</span>, loader: <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">plugins</span>:&#123;&#125;,</span><br><span class="line">	<span class="attr">resolve</span>:&#123;&#125;,</span><br><span class="line">	<span class="attr">watch</span>:ture</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<p>4.在App.vue中使用路由</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;router-link to=&quot;/content&quot;&gt;内容&lt;/router-link&gt;</span><br><span class="line">        &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    name:&#x27;App&#x27;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
 
       </section>
@@ -250,7 +241,7 @@
           <ul class="copyright">
   
     <li><strong>本文作者：</strong>tang xin</li>
-    <li><strong>本文链接：</strong><a href="http://txxhlyf.top/2022/01/28/webpack/index.html" title="http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;01&#x2F;28&#x2F;webpack&#x2F;index.html">http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;01&#x2F;28&#x2F;webpack&#x2F;index.html</a></li>
+    <li><strong>本文链接：</strong><a href="http://txxhlyf.top/2022/01/28/VueRouter/index.html" title="http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;01&#x2F;28&#x2F;VueRouter&#x2F;index.html">http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;01&#x2F;28&#x2F;VueRouter&#x2F;index.html</a></li>
     <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
   
 </ul>
@@ -271,8 +262,8 @@
 
         
   <nav class="nav">
-    <a href="/2022/01/28/VueRouter/"><i class="iconfont iconleft"></i>VueRouter</a>
-    <a href="/2022/01/22/Stack%E4%B8%8EDeque/">Stack与Deque<i class="iconfont iconright"></i></a>
+    <a href="/2022/02/12/%E9%9D%A2%E8%AF%95%E7%BB%8F/"><i class="iconfont iconleft"></i>面试经</a>
+    <a href="/2022/01/28/webpack/">webpack<i class="iconfont iconright"></i></a>
   </nav>
 
       </section>
@@ -318,7 +309,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8WebPack"><span class="toc-text">使用WebPack</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol>
   </aside>
 
         
