@@ -448,7 +448,7 @@
 <p>DOM 渲染在哪个周期中就已经完成？</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mounted</span><br></pre></td></tr></table></figure>
 
-<p><img  src="E:\txhexo\public\images\theme\vue生命周期图示.png"  ><span class="image-caption">vue生命周期图示</span></p>
+<p><img src="/2022/02/12/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E9%9D%A2%E8%AF%95%E7%BB%8F%5Cvue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA.png"><span class="image-caption">vue生命周期图示</span></p>
 ]]></content>
       <categories>
         <category>面试</category>
@@ -484,6 +484,39 @@
       </categories>
       <tags>
         <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随笔</title>
+    <url>/2022/03/04/%E9%9A%8F%E7%AC%94/</url>
+    <content><![CDATA[<h1 id="Excel函数CONCATENATE"><a href="#Excel函数CONCATENATE" class="headerlink" title="Excel函数CONCATENATE"></a>Excel函数CONCATENATE</h1><p>CONCATENATE(text1, [text2], …)连接字符串，使用<em>CONCATENATE</em>(其中一个文本函数)将两个或多个文本字符串联接为一个字符串。</p>
+<p>使用场景：利用excel表格数据批量向数据库插入或更新数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">=CONCATENATE(&quot;insert into 表名 (字段1,字段2) values (&#x27;&quot;&amp;A1&amp;&quot;&#x27;,&#x27;&quot;&amp;B1&amp;&quot;&#x27;&quot;)</span><br><span class="line">=CONCATENATE(&quot;update 表名 set 字段1=&#x27;&quot;&amp;A1&amp;&quot;&#x27;  where 字段2=&#x27;&quot;&amp;B1&amp;&quot;&#x27;&quot;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>杂</category>
+      </categories>
+      <tags>
+        <tag>杂</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>resin4.0配置服务报错</title>
+    <url>/2022/03/14/resin4-0%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99/</url>
+    <content><![CDATA[<h1 id="在resin4-0部署项目，出现server-‘default’-错误"><a href="#在resin4-0部署项目，出现server-‘default’-错误" class="headerlink" title="在resin4.0部署项目，出现server ‘default’ 错误"></a>在resin4.0部署项目，出现server ‘default’ 错误</h1><p>在配置resin4.0部署项目时出现以下报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">com.caucho.config.ConfigException: -server &#x27;default&#x27; is an unknown server in the configuration file.</span><br><span class="line">    at com.caucho.server.resin.Resin.initTopology(Resin.java:1101)</span><br><span class="line">    at com.caucho.server.resin.Resin.initServletSystem(Resin.java:1307)</span><br><span class="line">    at com.caucho.server.resin.Resin.configure(Resin.java:1026)</span><br><span class="line">    at com.caucho.server.resin.Resin.initMain(Resin.java:1008)</span><br><span class="line">    at com.caucho.server.resin.Resin.main(Resin.java:1469)</span><br><span class="line">-server &#x27;default&#x27; is an unknown server in the configuration file.</span><br></pre></td></tr></table></figure>
+
+<p>解决：在resin启动参数里加上-server app-0，启动前缀名为app的服务。</p>
+<p>如图：</p>
+<p><img src="/2022/03/14/resin4-0%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99/resin4-0%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%5Cresin4.0%E9%85%8D%E7%BD%AE_2022-03-14_14-21-33.png"><span class="image-caption">resin4.0配置_2022-03-14_14-21-33</span></p>
+]]></content>
+      <categories>
+        <category>resin</category>
+      </categories>
+      <tags>
+        <tag>resin</tag>
+        <tag>报错</tag>
       </tags>
   </entry>
 </search>
