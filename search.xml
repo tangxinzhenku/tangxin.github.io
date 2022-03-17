@@ -519,4 +519,44 @@
         <tag>报错</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Resin4自定义端口</title>
+    <url>/2022/03/17/Resin4%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AB%AF%E5%8F%A3/</url>
+    <content><![CDATA[<p>Resin4自定义端口</p>
+<p> 1.Resin4配置文件发生了较大变化，分为：</p>
+<ul>
+<li>app-default.xml web应用配置</li>
+<li>cluster-default.xml 集群配置</li>
+<li>health.xml – 非pro版不支持　　</li>
+<li>resin.xml</li>
+<li>resin.properties 会被修改的变量</li>
+</ul>
+<ol start="2">
+<li>Resin4启动默认有三个端口：</li>
+</ol>
+<ul>
+<li>watch dog 用的6600 （配置文件里没有）</li>
+<li>Http端口:8080 （对应app.http）</li>
+<li>Server监听端口： 127.0.0.1:6800 （对应app_servers ）</li>
+</ul>
+<p>说明：单个Resin不管同时配置几个应用，每次启动Resin之后，只会启动一个WatchDog监听，kill掉WatchDog后，所有的实例都会停止，WatchDog运行中，kill掉某个实例后，该实例会自动重启。</p>
+<p>经验证：只要WatchDog在运行中，修改server端口，不需要重启resin。</p>
+<ol start="3">
+<li>自定义端口（resin.properties）</li>
+</ol>
+<p>　　resin.properties中修改server端口　　</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app_servers      : 127.0.0.1:6801</span><br></pre></td></tr></table></figure>
+
+<p>　　resin.properties中修改http端口　　　</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">app.http : 8081</span><br></pre></td></tr></table></figure>
+
+<p>　　resin.xml中修改WatchDog</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;server-multi id-prefix=&quot;app-&quot; address-list=&quot;$&#123;app_servers&#125;&quot; port=&quot;6800&quot;&gt;</span><br><span class="line">    &lt;watchdog-port&gt;6601&lt;/watchdog-port&gt;</span><br><span class="line">&lt;/server-multi&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>resin</category>
+      </categories>
+      <tags>
+        <tag>resin</tag>
+      </tags>
+  </entry>
 </search>
