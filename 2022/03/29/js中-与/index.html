@@ -6,12 +6,13 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>标签 - tx</title>
+  <title>js中?.与?? - tx</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  <meta name="description" content="Java">
+  <meta name="description" content="Js中?.与??可选链操作符?.
+表达式中的所有引用不...">
   <meta name="author" content="tang xin">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -154,7 +155,7 @@
         <i class="iconfont iconsearch j-navbar-search"></i>
       
     </div>
-    <div class="center">标签</div>
+    <div class="center">js中?.与??</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -190,15 +191,121 @@
   </div>
 </nav>
   <main id="main">
-  <section class="tags">
-    <header class="header">
-  <h1 class="header-title">标签</h1>
-  <p class="header-subtitle">共: 8 个</p>
-</header>
-    <div class="tags-container">
-      <a href="/tags/hexo/" style="font-size: 14px; color: #666">hexo</a> <a href="/tags/js/" style="font-size: 14px; color: #666">js</a> <a href="/tags/resin/" style="font-size: 36px; color: #212121">resin</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 36px; color: #212121">前端</a> <a href="/tags/%E6%8A%A5%E9%94%99/" style="font-size: 14px; color: #666">报错</a> <a href="/tags/%E6%9D%82/" style="font-size: 14px; color: #666">杂</a> <a href="/tags/%E6%A0%88%E5%A0%86/" style="font-size: 14px; color: #666">栈堆</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #666">面试</a>
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">js中?.与??</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>三月 29, 2022</span>
+      
+        <span class="post-info-item">
+          <i class="iconfont iconeye"></i><span id="/2022/03/29/js%E4%B8%AD-%E4%B8%8E/" class="leancloud-counter" data-flag-title="js中?.与??"></span>
+        </span>
+        <span class="post-info-item">
+          <i class="iconfont iconheart"></i><span id="/2022/03/29/js%E4%B8%AD-%E4%B8%8E/" class="leancloud-like" data-flag-title="js中?.与??"></span>
+        </span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>520</span>
     </div>
-  </section>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h1 id="Js中-与"><a href="#Js中-与" class="headerlink" title="Js中?.与??"></a>Js中?.与??</h1><p>可选链操作符?.</p>
+<p>表达式中的所有引用不存在也不会报错，只返回undefined。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=<span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> name=obj.name<span class="comment">//Uncaught TypeError: Cannot read property &#x27;name&#x27; of null</span></span><br><span class="line"><span class="keyword">let</span> age=obj?.age<span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj=&#123;</span><br><span class="line">	<span class="attr">data</span>:&#123;</span><br><span class="line">		<span class="attr">list</span>:&#123;</span><br><span class="line">			<span class="attr">res</span>:<span class="string">&#x27;你好&#x27;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj?.data?.list?.name等价于obj&amp;&amp;obj.data&amp;&amp;obj.data.list&amp;&amp;obj.data.list.name</span><br></pre></td></tr></table></figure>
+
+<p>空值合并操作符？？</p>
+<p>当左侧为null或undefined时，返回右侧的值，否则返回左侧的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> b=a??<span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> c=b??a;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;b&quot;</span>,b);<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;c&quot;</span>,c);<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>tang xin</li>
+    <li><strong>本文链接：</strong><a href="http://txxhlyf.top/2022/03/29/js%E4%B8%AD-%E4%B8%8E/index.html" title="http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;03&#x2F;29&#x2F;js%E4%B8%AD-%E4%B8%8E&#x2F;index.html">http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;03&#x2F;29&#x2F;js%E4%B8%AD-%E4%B8%8E&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="/images/theme/txalipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2022/03/17/Resin4%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AB%AF%E5%8F%A3/">Resin4自定义端口<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+        <section class="comments">
+  
+    <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+<div id="valine"></div>
+<script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  window.onload = function () {
+    var loadValine = function () {
+      new Valine({
+        el: '#valine',
+        app_id: "E5osV9THCkqKJTAPM3vNz0YX-gzGzoHsz",
+        app_key: "SUVNKWcjjMURoAFNt0JzhV05",
+        placeholder: "雁过留痕",
+        avatar: "mp",
+        pageSize: "10",
+        lang: "zh-CN",
+      });
+    }
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        loadValine();
+      });
+    } else {
+      loadValine();
+    }
+  };
+</script>
+
+</section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Js%E4%B8%AD-%E4%B8%8E"><span class="toc-text">Js中?.与??</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
 </main>
   
 
@@ -247,6 +354,10 @@
       <div class="fab fab-plus">
     <i class="iconfont iconplus"></i>
   </div>
+  
+    <div class="fab fab-like">
+      <i class="iconfont iconheart"></i>
+    </div>
   
   
     <div class="fab fab-daovoice">
