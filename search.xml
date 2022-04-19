@@ -578,4 +578,88 @@
         <tag>js</tag>
       </tags>
   </entry>
+  <entry>
+    <title>fetch使用</title>
+    <url>/2022/04/19/fetch%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="fetch的使用"><a href="#fetch的使用" class="headerlink" title="fetch的使用"></a>fetch的使用</h1><p><strong>fetch写法：</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fetch(...).then(fun2)</span><br><span class="line">          .then(fun3)</span><br><span class="line">          .....</span><br><span class="line">          .catch(fun)</span><br></pre></td></tr></table></figure>
+
+<p><strong>fetch发送请求，api：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fetch(url,options)</span><br></pre></td></tr></table></figure>
+
+<p><strong>fetch使用：</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fetch(<span class="string">&#x27;/api/dp/getJxsData&#x27;</span>, &#123;</span><br><span class="line">	 <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">	 <span class="attr">headers</span>: &#123;</span><br><span class="line">	 <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">	 &#125;,</span><br><span class="line">	 <span class="attr">body</span>: <span class="built_in">JSON</span>.stringify(params) <span class="comment">// 这里是请求对象</span></span><br><span class="line">	 &#125;).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">     	<span class="keyword">return</span>  response.text()<span class="comment">// res.text()是一个Promise对象</span></span><br><span class="line">	 &#125;).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</span><br><span class="line">	 	<span class="built_in">console</span>.log(<span class="string">&quot;data&quot;</span>,response);<span class="comment">//返回的数据</span></span><br><span class="line">	 &#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>method:请求的方法，默认GET</li>
+<li>headers:请求头，fetch默认的post的header是<code>Content-Type:text/plain;charset=UTF-8</code></li>
+<li>body:请求的主体内容</li>
+<li>response.text() —— 读取 response，并以文本形式返回 response</li>
+<li>response.json() —— 将 response 解析为 JSON</li>
+<li>response.formData() —— 以 FormData 对象的形式返回 response</li>
+<li>response.blob() —— 以 Blob（具有类型的二进制数据）形式返回 response</li>
+<li>response.arrayBuffer() —— 以 ArrayBuffer（低级别的二进制数据）形式返回 response</li>
+</ul>
+<p><strong>与ajax的区别:</strong></p>
+<p>1、fetch()返回的promise将不会拒绝http的错误状态，即使响应是一个HTTP 404或者500</p>
+<p>2、在默认情况下 fetch不会接受或者发送cookies</p>
+]]></content>
+      <categories>
+        <category>js</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>oracle日期查询</title>
+    <url>/2022/04/19/oracle%E6%97%A5%E6%9C%9F%E6%9F%A5%E8%AF%A2/</url>
+    <content><![CDATA[<h1 id="oracle日期查询"><a href="#oracle日期查询" class="headerlink" title="oracle日期查询"></a>oracle日期查询</h1><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">按日期范围</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_name <span class="keyword">where</span> to_date(<span class="string">&#x27;date&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>) <span class="keyword">between</span> (to_date(<span class="string">&#x27;date1&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>)) <span class="keyword">and</span> (to_date(<span class="string">&#x27;date2&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>))</span><br><span class="line">今天</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_name <span class="keyword">where</span> to_char(<span class="string">&#x27;date&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>)<span class="operator">=</span>to_char(sysdate,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>)</span><br><span class="line">本周</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_name <span class="keyword">where</span> to_char(to_date(<span class="string">&#x27;date&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>),<span class="string">&#x27;iw&#x27;</span>)<span class="operator">=</span>to_char(sysdate,<span class="string">&#x27;iw&#x27;</span>) <span class="keyword">and</span> to_char(to_date(<span class="string">&#x27;date&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>),<span class="string">&#x27;yyyy&#x27;</span>)<span class="operator">=</span>to_char(sysdate,<span class="string">&#x27;yyyy&#x27;</span>)</span><br><span class="line">本月</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_name <span class="keyword">where</span> to_char(to_date(<span class="string">&#x27;date&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>),<span class="string">&#x27;yyyy-MM&#x27;</span>)<span class="operator">=</span>to_char(sysdate,<span class="string">&#x27;yyyy-MM&#x27;</span>)</span><br><span class="line">本季</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_name <span class="keyword">where</span> to_char(to_date(<span class="string">&#x27;date&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>),<span class="string">&#x27;q&#x27;</span>)<span class="operator">=</span>to_char(sysdate,<span class="string">&#x27;q&#x27;</span>) <span class="keyword">and</span> to_char(to_date(<span class="string">&#x27;date&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>),<span class="string">&#x27;yyyy&#x27;</span>)<span class="operator">=</span>to_char(sysdate,<span class="string">&#x27;yyyy&#x27;</span>)</span><br><span class="line">本年</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_name <span class="keyword">where</span> to_char(to_date(<span class="string">&#x27;date&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>),<span class="string">&#x27;yyyy&#x27;</span>)<span class="operator">=</span>to_char(sysdate,<span class="string">&#x27;yyyy&#x27;</span>)</span><br><span class="line">上一月</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_name <span class="keyword">where</span> to_char(to_date(<span class="string">&#x27;date&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>),<span class="string">&#x27;yyyy-MM&#x27;</span>)<span class="operator">=</span>to_char(add_months(trunc(sysdate),<span class="number">-1</span>),<span class="string">&#x27;yyyy-MM&#x27;</span>)</span><br><span class="line">上一年</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_name <span class="keyword">where</span> to_char(to_date(<span class="string">&#x27;date&#x27;</span>,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>),<span class="string">&#x27;yyyy&#x27;</span>)<span class="operator">=</span>to_char(add_months(sysdate,<span class="number">-12</span>),<span class="string">&#x27;yyyy&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Oracle中TO_DATE格式2009-04-14 10:53TO_DATE格式(以时间:2007-11-02  13:45:25为例)</p>
+<p>​    Year:   </p>
+<p>​    yy two digits 两位年        显示值:07</p>
+<p>​    yyy three digits 三位年        显示值:007</p>
+<p>​    yyyy four digits 四位年        显示值:2007</p>
+<p>​    Month:   </p>
+<p>​    mm  number   两位月       显示值:11</p>
+<p>​    mon  abbreviated 字符集表示     显示值:11月,若是英文版,显示nov  </p>
+<p>​    month spelled out 字符集表示     显示值:11月,若是英文版,显示november</p>
+<p>​    </p>
+<p>​    Day:   </p>
+<p>​    dd  number     当月第几天    显示值:02</p>
+<p>​    ddd  number     当年第几天    显示值:02</p>
+<p>​    dy  abbreviated 当周第几天简写  显示值:星期五,若是英文版,显示fri</p>
+<p>​    day  spelled out  当周第几天全写  显示值:星期五,若是英文版,显示friday    </p>
+<p>​    ddspth spelled out, ordinal twelfth</p>
+<p>​      </p>
+<p>​       Hour:</p>
+<p>​       hh  two digits 12小时进制      显示值:01</p>
+<p>​       hh24 two digits 24小时进制      显示值:13</p>
+<p>​       </p>
+<p>​       Minute:</p>
+<p>​       mi  two digits 60进制        显示值:45</p>
+<p>​       </p>
+<p>​       Second:</p>
+<p>​       ss  two digits 60进制        显示值:25</p>
+<p>​       </p>
+<p>​       其它</p>
+<p>​       Q   digit     季度         显示值:4</p>
+<p>​       WW  digit     当年第几周      显示值:44</p>
+<p>​       iW  digit     当年第几周      显示值:44</p>
+<p>​       W  digit     当月第几周      显示值:1</p>
+<p>​       </p>
+<p>​    24小时格式下时间范围为： 0:00:00 - 23:59:59….   </p>
+<p>​    12小时格式下时间范围为： 1:00:00 - 12:59:59 ….</p>
+<p><strong>注意：</strong></p>
+<p>ww的算法为每年1月1日为第一周开始，date+6为每一周结尾<br>例如:20050101为第一周的第一天，而第一周的最后一天为20050101+6=20050107　　</p>
+<p>iw的算法为星期一至星期日算一周，且每年的第一个星期一为第一周，<br>例如:20050101为星期六，所以用iw的算法是前年的53周，而20050103之后才是第一周的开始。　　</p>
+]]></content>
+      <categories>
+        <category>oracle</category>
+      </categories>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
 </search>

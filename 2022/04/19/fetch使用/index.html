@@ -6,13 +6,13 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>js中?.与?? - tx</title>
+  <title>fetch使用 - tx</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  <meta name="description" content="Js中?.与??可选链操作符?.
-表达式中的所有引用不...">
+  <meta name="description" content="fetch的使用fetch写法：
+1234fetch(...">
   <meta name="author" content="tang xin">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -155,7 +155,7 @@
         <i class="iconfont iconsearch j-navbar-search"></i>
       
     </div>
-    <div class="center">js中?.与??</div>
+    <div class="center">fetch使用</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -199,31 +199,45 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">js中?.与??</h1>
+    <h1 class="head-title">fetch使用</h1>
     <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>三月 29, 2022</span>
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 19, 2022</span>
       
         <span class="post-info-item">
-          <i class="iconfont iconeye"></i><span id="/2022/03/29/js%E4%B8%AD-%E4%B8%8E/" class="leancloud-counter" data-flag-title="js中?.与??"></span>
+          <i class="iconfont iconeye"></i><span id="/2022/04/19/fetch%E4%BD%BF%E7%94%A8/" class="leancloud-counter" data-flag-title="fetch使用"></span>
         </span>
         <span class="post-info-item">
-          <i class="iconfont iconheart"></i><span id="/2022/03/29/js%E4%B8%AD-%E4%B8%8E/" class="leancloud-like" data-flag-title="js中?.与??"></span>
+          <i class="iconfont iconheart"></i><span id="/2022/04/19/fetch%E4%BD%BF%E7%94%A8/" class="leancloud-like" data-flag-title="fetch使用"></span>
         </span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>520</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>994</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        <h1 id="Js中-与"><a href="#Js中-与" class="headerlink" title="Js中?.与??"></a>Js中?.与??</h1><p>可选链操作符?.</p>
-<p>表达式中的所有引用不存在也不会报错，只返回undefined。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=<span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> name=obj.name<span class="comment">//Uncaught TypeError: Cannot read property &#x27;name&#x27; of null</span></span><br><span class="line"><span class="keyword">let</span> age=obj?.age<span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj=&#123;</span><br><span class="line">	<span class="attr">data</span>:&#123;</span><br><span class="line">		<span class="attr">list</span>:&#123;</span><br><span class="line">			<span class="attr">res</span>:<span class="string">&#x27;你好&#x27;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj?.data?.list?.name等价于obj&amp;&amp;obj.data&amp;&amp;obj.data.list&amp;&amp;obj.data.list.name</span><br></pre></td></tr></table></figure>
+        <h1 id="fetch的使用"><a href="#fetch的使用" class="headerlink" title="fetch的使用"></a>fetch的使用</h1><p><strong>fetch写法：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fetch(...).then(fun2)</span><br><span class="line">          .then(fun3)</span><br><span class="line">          .....</span><br><span class="line">          .catch(fun)</span><br></pre></td></tr></table></figure>
 
-<p>空值合并操作符？？</p>
-<p>当左侧为null或undefined时，返回右侧的值，否则返回左侧的值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> b=a??<span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> c=b??a;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;b&quot;</span>,b);<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;c&quot;</span>,c);<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+<p><strong>fetch发送请求，api：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fetch(url,options)</span><br></pre></td></tr></table></figure>
 
+<p><strong>fetch使用：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">&#x27;/api/dp/getJxsData&#x27;</span>, &#123;</span><br><span class="line">	 <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">	 <span class="attr">headers</span>: &#123;</span><br><span class="line">	 <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">	 &#125;,</span><br><span class="line">	 <span class="attr">body</span>: <span class="built_in">JSON</span>.stringify(params) <span class="comment">// 这里是请求对象</span></span><br><span class="line">	 &#125;).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">     	<span class="keyword">return</span>  response.text()<span class="comment">// res.text()是一个Promise对象</span></span><br><span class="line">	 &#125;).then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;</span><br><span class="line">	 	<span class="built_in">console</span>.log(<span class="string">&quot;data&quot;</span>,response);<span class="comment">//返回的数据</span></span><br><span class="line">	 &#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>method:请求的方法，默认GET</li>
+<li>headers:请求头，fetch默认的post的header是<code>Content-Type:text/plain;charset=UTF-8</code></li>
+<li>body:请求的主体内容</li>
+<li>response.text() —— 读取 response，并以文本形式返回 response</li>
+<li>response.json() —— 将 response 解析为 JSON</li>
+<li>response.formData() —— 以 FormData 对象的形式返回 response</li>
+<li>response.blob() —— 以 Blob（具有类型的二进制数据）形式返回 response</li>
+<li>response.arrayBuffer() —— 以 ArrayBuffer（低级别的二进制数据）形式返回 response</li>
+</ul>
+<p><strong>与ajax的区别:</strong></p>
+<p>1、fetch()返回的promise将不会拒绝http的错误状态，即使响应是一个HTTP 404或者500</p>
+<p>2、在默认情况下 fetch不会接受或者发送cookies</p>
 
       </section>
       <section class="extra">
@@ -231,7 +245,7 @@
           <ul class="copyright">
   
     <li><strong>本文作者：</strong>tang xin</li>
-    <li><strong>本文链接：</strong><a href="http://txxhlyf.top/2022/03/29/js%E4%B8%AD-%E4%B8%8E/index.html" title="http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;03&#x2F;29&#x2F;js%E4%B8%AD-%E4%B8%8E&#x2F;index.html">http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;03&#x2F;29&#x2F;js%E4%B8%AD-%E4%B8%8E&#x2F;index.html</a></li>
+    <li><strong>本文链接：</strong><a href="http://txxhlyf.top/2022/04/19/fetch%E4%BD%BF%E7%94%A8/index.html" title="http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;04&#x2F;19&#x2F;fetch%E4%BD%BF%E7%94%A8&#x2F;index.html">http:&#x2F;&#x2F;txxhlyf.top&#x2F;2022&#x2F;04&#x2F;19&#x2F;fetch%E4%BD%BF%E7%94%A8&#x2F;index.html</a></li>
     <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
   
 </ul>
@@ -252,8 +266,8 @@
 
         
   <nav class="nav">
-    <a href="/2022/04/19/fetch%E4%BD%BF%E7%94%A8/"><i class="iconfont iconleft"></i>fetch使用</a>
-    <a href="/2022/03/17/Resin4%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AB%AF%E5%8F%A3/">Resin4自定义端口<i class="iconfont iconright"></i></a>
+    <a href="/2022/04/19/oracle%E6%97%A5%E6%9C%9F%E6%9F%A5%E8%AF%A2/"><i class="iconfont iconleft"></i>oracle日期查询</a>
+    <a href="/2022/03/29/js%E4%B8%AD-%E4%B8%8E/">js中?.与??<i class="iconfont iconright"></i></a>
   </nav>
 
       </section>
@@ -299,7 +313,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Js%E4%B8%AD-%E4%B8%8E"><span class="toc-text">Js中?.与??</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#fetch%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">fetch的使用</span></a></li></ol>
   </aside>
 
         
